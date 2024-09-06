@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Viewer</title>
+
+    <!-- Include OpenSeadragon library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/openseadragon.min.js"></script>
+
+    <style>
+        /* Set the size of the viewer */
+        #openseadragon {
+            width: 100%;
+            height: 90vh;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>OpenSeadragon IIIF Viewer</h1>
+    <div id="openseadragon"></div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/images/",
+            tileSources: {
+                "@context": "http://iiif.io/api/image/2/context.json",
+                "@id": "https://cchi-iif.mtu.edu/iiif/3/C&H--000019.004.01.03.12--019--0FF%201%20DR%20D%20FLDR%201--[MAP%20OF%20NORTH%20TAMARACK%20SURFACE%20-%203%20&%204%20LOCATIONS]-CA%20UNDATED.tiff",
+                "profile": ["http://iiif.io/api/image/2/level2.json"],
+                "protocol": "http://iiif.io/api/image",
+                "width": 14400,
+                "height": 10800
+            }
+        });
+
+        OpenSeadragon.DEFAULT_SETTINGS.timeout = 60000; // or whatever number
+    </script>
+
+</body>
+</html>
